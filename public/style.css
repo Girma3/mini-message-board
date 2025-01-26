@@ -1,0 +1,71 @@
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+}
+/* message  */
+ul {
+  background-color: #fffbe0;
+  list-style: none;
+}
+.msg-holder {
+  position: relative;
+  width: fit-content;
+  border-radius: 5px;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  outline: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0);
+}
+.msg-holder::before {
+  content: "";
+  width: 5px;
+  height: 100%;
+  background-color: green;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+}
+
+/* form */
+input {
+  width: 300px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  border-radius: 0.4rem;
+  border: 1.5px solid rgb(10, 1, 255);
+  outline: 1px solid inherit;
+}
+input:focus {
+  outline: 1px solid green;
+  border-color: green;
+}
+.submitBtn {
+  width: fit-content;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgb(200, 5, 5), rgb(169, 4, 160));
+  color: white;
+  cursor: pointer;
+  margin: auto;
+  border: none;
+  outline: none;
+}
+.submitBtn:hover {
+  color: yellow;
+  background: black;
+}
+.new-msg {
+  text-align: center;
+}
