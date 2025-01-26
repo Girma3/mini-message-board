@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
+  <%- include("./partials/header",{title:title}) %>
+  <body>
     <h1>Home page</h1>
-    
-</body>
+    <ul>
+      <% messages.forEach((message)=>{ %>
+      <li class="msg-holder">
+        <p><%= message.user %></p>
+        <p><%= message.text%></p>
+        <p><%= message.added %></p>
+        <a href="/new/<%=message._id%>">Open</a>
+      </li>
+      <% })%>
+    </ul>
+  </body>
 </html>

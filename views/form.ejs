@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header",{title:title}) %>
+  <body>
+    <h1 class="new-msg">Create New Message</h1>
+    <form action="/new" method="post" class="flex-column">
+      <label for="user-name">User Name </label>
+      <input type="text" id="use-name" name="user-name" />
+      <label for="user-msg">Text </label>
+      <input type="text" id="user-msg" name="user-msg" />
+      <button type="submit" class="submitBtn">Add post</button>
+    </form>
+  </body>
+</html>
