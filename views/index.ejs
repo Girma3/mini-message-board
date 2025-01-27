@@ -3,15 +3,19 @@
   <%- include("./partials/header",{title:title}) %>
   <body>
     <h1>Home page</h1>
+    <%if(messages.length === 0) {%>
+    <h2>create message in the <a href="/new">new message</a></h2>
+    <%}%>
     <ul>
-      <% messages.forEach((message)=>{ %>
+      <%if(messages.length){%> <% messages.forEach((message)=>{ %>
+
       <li class="msg-holder">
-        <p><%= message.user %></p>
+        <p><%= message.userName %></p>
         <p><%= message.text%></p>
         <p><%= message.added %></p>
-        <a href="/new/<%=message._id%>">Open</a>
+        <a href="/<%=message.id%>">Open</a>
       </li>
-      <% })%>
+      <% })%> <%}%>
     </ul>
   </body>
 </html>
