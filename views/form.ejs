@@ -2,13 +2,29 @@
 <html lang="en">
   <%- include("./partials/header",{title:title}) %>
   <body>
-    <h1 class="new-msg">Create New Message</h1>
-    <form action="/new" method="POST" class="flex-column">
-      <label for="userName">User Name </label>
-      <input type="text" id="useName" name="userName" />
-      <label for="userMsg">Text </label>
-      <input type="text" id="userMsg" name="userMsg" />
-      <button type="submit" class="submitBtn">Add post</button>
-    </form>
+    <header class="flex-row">
+      <h1 class="new-msg">Create New Message</h1>
+      <a href="/" class="backHome">Home</a>
+    </header>
+    <main>
+      <form action="/new" method="POST" class="flex-column form">
+        <label for="userName">User Name </label>
+        <input
+          type="text"
+          id="useName"
+          name="userName"
+          minlength="3"
+          placeholder="John"
+        />
+        <label for="userMsg">Text </label>
+        <input
+          type="text"
+          id="userMsg"
+          name="userMsg"
+          placeholder="Hi Everyone!"
+        />
+        <button type="submit" class="submitBtn">Add post</button>
+      </form>
+    </main>
   </body>
 </html>
