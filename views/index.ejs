@@ -2,20 +2,52 @@
 <html lang="en">
   <%- include("./partials/header",{title:title}) %>
   <body>
-    <h1>Home page</h1>
-    <%if(messages.length === 0) {%>
-    <h2>create message in the <a href="/new">new message</a></h2>
-    <%}%>
-    <ul>
-      <%if(messages.length){%> <% messages.forEach((message)=>{ %>
+    <header class="flex-row">
+      <h1>Mini-Message-Board</h1>
+      <a href="/new" class="add-msg">Add New Message</a>
+    </header>
+    <main>
+      <%if(messages.length === 0) {%>
+      <h2>create message in the <a href="/new">new message</a></h2>
+      <%}%>
+      <ul class="flex-column all-msg">
+        <%if(messages.length){%> <% messages.forEach((message)=>{ %>
 
-      <li class="msg-holder">
-        <p><%= message.userName %></p>
-        <p><%= message.text%></p>
-        <p><%= message.added %></p>
-        <a href="/<%=message.id%>">Open</a>
-      </li>
-      <% })%> <%}%>
-    </ul>
+        <li class="msg-holder">
+          <div class="flex-row">
+            <div class="flex-column">
+              <p class="userName"><%= message.userName %></p>
+              <p class="userText">
+                <% if (message.userMsg.length > 45) { %> <%=
+                message.userMsg.slice(0, 40) + '...' %> <% } else { %> <%=
+                message.userMsg %> <% } %>
+              </p>
+            </div>
+            <div class="flex-column">
+              <p><%=message.added %></p>
+              <p class="from-current-time"><%= message.fromCurrentTime %></p>
+              <a
+                href="/<%=message.id%>"
+                class="open-msg"
+                aria-label="open message"
+              ></a>
+            </div>
+          </div>
+        </li>
+        <% })%> <%}%>
+      </ul>
+    </main>
+    <script>
+      window.addEventListener("load", () => {
+        const msgHolder = document.querySelectorAll(".msg-holder");
+        if (msgHolder) {
+          msgHolder.forEach((msgHolder) => {
+            msgHolder.classList.add("curtain-open");
+          });
+        }
+      });
+    </script>
+
+    <script type="module" src="/client-side.js"></script>
   </body>
 </html>
