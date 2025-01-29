@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/header",{title:title}) %>
+  <body> 
+   
+    
+    <main>
+    
+    <section class="flex-column msgDetail">
+      <div class="flex-row nav">
+        <a href="/" class="backBtn">Back</a>
+        <button
+        class="delBtn"
+        aria-label="delete message"
+        data-msg="<%= message.id %>"
+      ></button>
+    </div>
+    <h1 >Preview message</h1>
+     
+      <div class="flex-column msg-content">  
+        <h2 class="msg-title">User Information</h2>
+        <div class="flex-column msg-info">
+        <p class="user-name">User-Name: <%= message.userName %></p>
+        <p class="user-text">User-Text: <%= message.userMsg %></p>
+      </div>
+      <h2 class="msg-title">Timestamp</h2>
+      <div class=" flex-column msg-info">
+        <p>Created-Time: <%= message.added %> </p>
+        <p class="from-current-time"></p> Relative to now: <%= message.fromCurrentTime%> </p>
+        <p>Date: <%= message.formattedDate %></p>
+       </div>
+        </div>
+  </main>
+  </body>
+  <script>
+    const deleteBtn = document.querySelector(".delBtn");
+
+    deleteBtn.addEventListener("click", (e) => {
+      const endPoint = `/${deleteBtn.dataset.msg}`;
+
+      fetch(endPoint, { method: "DELETE" })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => (window.location.href = data.redirect)) //server response choose to which page
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  </script>
+  
+</html>
