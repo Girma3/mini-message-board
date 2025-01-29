@@ -1,24 +1,42 @@
 import { LocalStorage } from "node-localstorage";
+import { format, formatDistanceToNow, parseISO } from "date-fns";
+
 const localStorage = new LocalStorage("./local-storage-database");
 
 import ShortUniqueId from "short-unique-id";
-const uid = new ShortUniqueId();
+let uid = new ShortUniqueId();
+function formatCurrentTime(date) {
+  return format(date, "HH:mm aa");
+}
 
-const defaultMsg = [
-  {
+function getTimeDifference(createdTime) {
+  return formatDistanceToNow(createdTime, { addSuffix: true });
+}
+function User(userName, userMsg) {
+  const createdTime = new Date().toISOString();
+  const currentDate = parseISO(createdTime);
+  const formattedDate = format(currentDate, "EEE, MMM d-yyyy");
+  const added = formatCurrentTime(new Date(createdTime));
+  const fromCurrentTime = getTimeDifference(new Date(createdTime));
+  return {
     id: uid.rnd(),
-    text: "Hi there!",
-    userName: "John",
-    added: new Date(),
-  },
-  {
-    id: uid.rnd(),
-    text: "Hello World!",
-    userName: "Charles",
-    added: new Date(),
-  },
-];
-//
+    userMsg: userMsg,
+    userName: userName,
+    createdTime: createdTime,
+    added: added,
+    fromCurrentTime: fromCurrentTime,
+    formattedDate: formattedDate,
+  };
+}
+
+const userOne = User("King G", "Happy Coding, Every body 💪");
+const userTwo = User(
+  "Fredrick  Nietzsche",
+  "To live is to suffer, to survive is to find some meaning in the suffering."
+);
+
+const defaultMsg = [userOne, userTwo];
+
 const LOCAL_STORAGE_MSG_KEY = "messages";
 let messages = JSON.parse(localStorage.getItem(LOCAL_STORAGE_MSG_KEY)) || [];
 
@@ -40,4 +58,11 @@ if (messages.length === 0) {
   save();
 }
 
-export { messages, addMsg, deleteMsg };
+export {
+  messages,
+  addMsg,
+  deleteMsg,
+  formatCurrentTime,
+  getTimeDifference,
+  User,
+};
