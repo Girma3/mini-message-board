@@ -30,7 +30,6 @@ app.get("/api/messages", (req, res) => {
   });
   res.json(messages);
 });
-app.use("*", notFound);
 
 app.listen(PORT, () => {
   console.log("server is running..");
