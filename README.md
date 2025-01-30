@@ -52,6 +52,10 @@ Users should be able to:
 
 - I want to update the time created for message dynamically like "x minute ago" and so on, so that part was difficult at first and I solve it using the separate client side js file to make request to server periodically and get updated json data and render that data to user.
 
+### useful resource
+
+- [net ninja](https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) this resource help to understand node,express and ejs very well.
+
 ### Continued development
 
 - Learn more about node and express ,integrate it with frontend with react
