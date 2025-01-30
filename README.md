@@ -54,7 +54,7 @@ Users should be able to:
 
 ### useful resource
 
-- [net ninja](https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) this resource help to understand node,express and ejs very well.
+- [net ninja](https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU) this resource help me to understand node,express and ejs very well.
 
 ### Continued development
 
