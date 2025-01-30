@@ -11,8 +11,11 @@
   "author": "Girma",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^4.1.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "nodemon": "^3.1.9"
+    "node-localstorage": "^3.0.5",
+    "nodemon": "^3.1.9",
+    "short-unique-id": "^5.2.0"
   }
 }
