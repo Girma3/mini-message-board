@@ -1,4 +1,3 @@
-console.log("hey");
 // Function to fetch users data from the server
 async function fetchUsers() {
   //endpoint must matches the server get request
