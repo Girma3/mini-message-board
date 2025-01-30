@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 | <%= title%></title>
-  </head>
+  <%- include("./partials/header",{title:title}) %>
   <body>
-    <h1><%= title %></h1>
+    <main class="flex-column err-holder">
+      <a href="/" class="backHome">Back to Home</a>
+      <h1><%= title %></h1>
+    </main>
   </body>
 </html>
