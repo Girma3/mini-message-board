@@ -1,20 +1,15 @@
-import { messages, addMsg, deleteMsg } from "../models/messages.js";
-import ShortUniqueId from "short-unique-id";
+import { messages, addMsg, deleteMsg, User } from "../models/messages.js";
 
-const uid = new ShortUniqueId();
 async function getOneMsgById(msgId) {
   return messages.find((msg) => msgId === msg.id);
 }
 
 async function addNewMsg(req, res) {
   if (req.body.userName !== "") {
-    const newMessage = {
-      id: uid.rnd(),
-      userName: req.body.userName,
-      text: req.body.userMsg,
-      added: new Date(),
-    };
-    addMsg(newMessage);
+    const newUser = User();
+    newUser.userName = req.body.userName;
+    newUser.userMsg = req.body.userMsg;
+    addMsg(newUser);
     res.redirect("/"); //redirect to home page
   }
 }
