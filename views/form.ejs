@@ -7,14 +7,21 @@
       <a href="/" class="backHome">Home</a>
     </header>
     <main>
-      <form action="/new" method="POST" class="flex-column form">
+      <form
+        action="/new"
+        method="POST"
+        autocomplete="on"
+        class="flex-column form"
+      >
         <label for="userName">User Name </label>
         <input
           type="text"
-          id="useName"
+          id="userName"
           name="userName"
           minlength="3"
+          autocomplete="on"
           placeholder="John"
+          required
         />
         <label for="userMsg">Text </label>
         <input
@@ -22,6 +29,8 @@
           id="userMsg"
           name="userMsg"
           placeholder="Hi Everyone!"
+          autocomplete="on"
+          required
         />
         <button type="submit" class="submitBtn">Add post</button>
       </form>
